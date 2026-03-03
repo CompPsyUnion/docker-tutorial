@@ -12,7 +12,7 @@ First, move to the practise directory
 cd practise
 ```
 
-### Note: All source code already exists in the flask_demo_site folder. Here we only show the content of app.py to help you follow along step by step and experience the joy of building it yourself (doge)
+### Note: All source code already exists in this folder. Here we only show the content of app.py to help you follow along step by step and experience the joy of building it yourself (doge)
 
 Create a file named `app.py` with the following content:
 
@@ -334,14 +334,13 @@ docker network rm my-network
 
 Therefore, in most cases, no special configuration is needed unless you need containers to communicate with each other.
 
-~`Anyway, we don't need it for this weekly session (^_^)`~
----
+~~`Anyway, we don't need it for this weekly session (^_^)`~~
 
 ---
 
 Finally, we have learned some basic Docker operations.
 
-# But
+## But
 
 Have you ever thought about a question:
 
@@ -355,8 +354,8 @@ docker run -d --name my-container -p 8080:5000 my-image
 
 Exhausted after typing it all?
 
-# Would the legendary laziest programmers be willing to endure such humiliation! ! ! (╯‵□′)╯︵┻━┻
+## Would the legendary laziest programmers be willing to endure such humiliation! ! ! (╯‵□′)╯︵┻━┻
 
 For the specific solution, please look forward to the second part of this weekly session:
 
-# Docker Compose
+## Docker Compose

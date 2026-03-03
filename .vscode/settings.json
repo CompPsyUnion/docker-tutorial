@@ -1,5 +1,7 @@
 {
     "cSpell.words": [
-        "Dockerfiles"
+        "Dockerfiles",
+        "PYTHONUNBUFFERED",
+        "testdb"
     ]
 }
