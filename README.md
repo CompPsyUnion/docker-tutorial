@@ -1,10 +1,10 @@
-# Docker Compose Tutorial
+# Docker Tutorial
 
-A hands-on tutorial repository for learning Docker Compose with a real multi-container application.
+A hands-on tutorial repository for learning Docker & Docker Compose with a real multi-container application.
 
 ## Project Overview
 
-This project demonstrates a simple web application with MySQL database integration using Docker Compose.
+This project demonstrates a simple web application with MySQL database integration using Docker & Docker Compose.
 
 **Architecture:**
 
