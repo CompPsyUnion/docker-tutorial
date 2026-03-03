@@ -12,7 +12,7 @@ First, move to the practise directory
 cd practise
 ```
 
-### Note: All source code already exists in the src folder. Here we only show the content of app.py to help you follow along step by step and experience the joy of building it yourself (doge)
+### Note: All source code already exists in the flask_demo_site folder. Here we only show the content of app.py to help you follow along step by step and experience the joy of building it yourself (doge)
 
 Create a file named `app.py` with the following content:
 
@@ -209,7 +209,7 @@ All are feasible.
 
 ---
 
-As a programmer, how can you not look at logs? (*^_^*) 
+As a programmer, how can you not look at logs? (*^_^*)
 
 #### View Container Logs
 
@@ -230,7 +230,7 @@ There are two ways to stop a container:
 docker stop container_name
 ```
 
-2. Forced stop (only when necessary):
+1. Forced stop (only when necessary):
 
 ```bash
 docker kill container_name
@@ -355,7 +355,7 @@ docker run -d --name my-container -p 8080:5000 my-image
 
 Exhausted after typing it all?
 
-Would the legendary laziest programmers be willing to endure such humiliation! ! ! (╯‵□′)╯︵┻━┻
+# Would the legendary laziest programmers be willing to endure such humiliation! ! ! (╯‵□′)╯︵┻━┻
 
 For the specific solution, please look forward to the second part of this weekly session:
 
