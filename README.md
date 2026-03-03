@@ -47,12 +47,12 @@ docker compose up -d
 
 ## 4. Access the Application
 
-In Codespaces, Access the application at port `5000`, you can forward your port to the public internet use "Ports" tab in Codespaces, and click the link provided to open in browser.
+In Codespaces, Access the application at port `35000`, you can forward your port to the public internet use "Ports" tab in Codespaces, and click the link provided to open in browser.
 
 Once the services are running:
 
-- **Home Page**: [http://localhost:5000](http://localhost:5000)
-- **MySQL Test**: [http://localhost:5000/mysql](http://localhost:5000/mysql)
+- **Home Page**: [http://localhost:35000](http://localhost:35000)
+- **MySQL Test**: [http://localhost:35000/mysql](http://localhost:35000/mysql)
 
 ## Project Structure
 

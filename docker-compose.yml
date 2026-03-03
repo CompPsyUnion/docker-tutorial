@@ -2,7 +2,7 @@ services:
   web:
     build: ./src
     ports:
-      - "5000:5000"
+      - "35000:5000"
     environment:
       - MYSQL_HOST=mysql
       - MYSQL_PORT=3306
@@ -19,7 +19,7 @@ services:
       - MYSQL_ROOT_PASSWORD=123456
       - MYSQL_DATABASE=testdb
     ports:
-      - "3306:3306"
+      - "33306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
