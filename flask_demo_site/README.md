@@ -178,7 +178,7 @@ docker ps -a #查看所有的容器
 #### 启动容器
 
 ```bash
-docker start container_name
+docker start my-flask-container
 ```
 
 start后面接你自己定义的容器名即可
@@ -187,16 +187,23 @@ start后面接你自己定义的容器名即可
 
 ```bash
 # 进入容器内部交互式终端
-docker exec -it container_name /bin/bash
+docker exec -it my-flask-container /bin/bash
 
+# 退出容器交互式终端
+exit
+```
+
+#### 执行容器内命令
+
+```bash
 # 在容器内执行单个命令
-docker exec container_name ls -la
+docker exec my-flask-container ls -la
 ```
 
 你可以替换 ls -la 为你想要执行的命令，例如：
 
 ```bash
-docker exec container_name python -m flask run
+docker exec my-flask-container python -m flask run
 ```
 
 都是可行的。
@@ -208,10 +215,10 @@ docker exec container_name python -m flask run
 #### 查看容器日志
 
 ```bash
-docker logs container_name
+docker logs my-flask-container
 
 # 实时查看日志
-docker logs -f container_name
+docker logs -f my-flask-container
 ```
 
 #### 关闭容器
@@ -221,19 +228,19 @@ docker logs -f container_name
 1.优雅停止（推荐）：
 
 ```bash
-docker stop container_name
+docker stop my-flask-container
 ```
 
 2.暴力停止（迫不得已）：
 
 ```bash
-docker kill container_name
+docker kill my-flask-container
 ```
 
 #### 重启容器
 
 ```bash
-docker restart container_name
+docker restart my-flask-container
 ```
 
 #### 删除容器
@@ -255,6 +262,9 @@ docker container prune #清理所有停止运行的容器
 数据卷是Docker中用于持久化数据的机制，可以在容器之间共享数据，也可以在主机和容器之间共享数据。
 
 ```bash
+#创建文件夹（等会要用）
+mkdir ./data
+
 # 创建数据卷
 docker volume create my-volume
 
@@ -265,10 +275,10 @@ docker volume ls
 docker volume inspect my-volume
 
 # 在运行容器时挂载数据卷
-docker run -d --name my-container -v my-volume:/app/data my-image
+docker run -d --name my-flask-container -v my-volume:/app/data my-image
 
 # 挂载主机目录到容器
-docker run -d --name my-container -v /host/path:/container/path my-image
+docker run -d --name my-flask-container -v ./data:/app/data my-image
 
 # 删除数据卷
 docker volume rm my-volume
@@ -280,10 +290,10 @@ docker volume prune
 在这里，`-v`的作用是说明容器内的目录和主机内的目录的映射关系，例如：
 
 ```bash
-docker run -d --name my-container -v /host/path:/container/path my-image
+docker run -d --name my-flask-container -v ./data:/app/data my-image
 ```
 
-就说明容器内的`/container/path`目录和主机内的`/host/path`目录是映射关系，容器内的文件变化会同步到主机内，主机内的文件变化也会同步到容器内。
+就说明容器内的`/app/data`目录和主机内的`./data`目录是映射关系，容器内的文件变化会同步到主机内，主机内的文件变化也会同步到容器内。
 
 ---
 
@@ -312,13 +322,13 @@ docker network create my-network
 docker network ls
 
 # 运行容器时指定网络
-docker run -d --name my-container --network my-network my-image
+docker run -d --name my-flask-container --network my-network my-image
 
 # 连接容器到网络
-docker network connect my-network my-container
+docker network connect my-network my-flask-container
 
 # 断开容器与网络的连接
-docker network disconnect my-network my-container
+docker network disconnect my-network my-flask-container
 
 # 删除网络
 docker network rm my-network
@@ -343,7 +353,7 @@ docker network rm my-network
 每次我要创建容器时，我都要深吸一口气，然后直接一套：
 
 ```bash
-docker run -d --name my-container -p 8080:5000 my-image
+docker run -d --name my-flask-container -p 8080:5000 my-image
 ```
 
 累死累活的打完吗？

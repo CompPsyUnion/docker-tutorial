@@ -6,13 +6,9 @@ Docker Core Part
 
 First, we'll create a simple Flask application to demonstrate Docker usage.
 
-First, move to the practise directory
 
-```bash
-cd practise
-```
+### Note: All source code already exists in the flask_demo_site folder. Here we only show the content of app.py to help you follow along step by step and experience the joy of building it yourself (doge)
 
-### Note: All source code already exists in this folder. Here we only show the content of app.py to help you follow along step by step and experience the joy of building it yourself (doge)
 
 Create a file named `app.py` with the following content:
 
@@ -184,7 +180,7 @@ docker ps -a # View all containers
 #### Start Container
 
 ```bash
-docker start container_name
+docker start my-flask-container
 ```
 
 Just add your own container name after start
@@ -193,31 +189,38 @@ Just add your own container name after start
 
 ```bash
 # Enter the container's interactive terminal
-docker exec -it container_name /bin/bash
+docker exec -it my-flask-container /bin/bash
 
+# Exit the container's interactive terminal
+exit
+```
+
+#### Execute Commands in Container
+
+```bash
 # Execute a single command in the container
-docker exec container_name ls -la
+docker exec my-flask-container ls -la
 ```
 
 You can replace ls -la with the command you want to execute, for example:
 
 ```bash
-docker exec container_name python -m flask run
+docker exec my-flask-container python -m flask run
 ```
 
 All are feasible.
 
 ---
 
-As a programmer, how can you not look at logs? (*^_^*)
+As a programmer, how can you not look at logs? (*^_^*) 
 
 #### View Container Logs
 
 ```bash
-docker logs container_name
+docker logs my-flask-container
 
 # View logs in real-time
-docker logs -f container_name
+docker logs -f my-flask-container
 ```
 
 #### Stop Container
@@ -227,19 +230,19 @@ There are two ways to stop a container:
 1. Graceful stop (recommended):
 
 ```bash
-docker stop container_name
+docker stop my-flask-container
 ```
 
-1. Forced stop (only when necessary):
+2. Forced stop (only when necessary):
 
 ```bash
-docker kill container_name
+docker kill my-flask-container
 ```
 
 #### Restart Container
 
 ```bash
-docker restart container_name
+docker restart my-flask-container
 ```
 
 #### Delete Container
@@ -261,6 +264,9 @@ Where -f means force delete, if you want a gentler way, just remove -f.
 Data volumes are a mechanism in Docker for persisting data, which can share data between containers or between the host and containers.
 
 ```bash
+# Create folder (will be used later)
+mkdir ./data
+
 # Create data volume
 docker volume create my-volume
 
@@ -271,10 +277,10 @@ docker volume ls
 docker volume inspect my-volume
 
 # Mount data volume when running container
-docker run -d --name my-container -v my-volume:/app/data my-image
+docker run -d --name my-flask-container -v my-volume:/app/data my-image
 
 # Mount host directory to container
-docker run -d --name my-container -v /host/path:/container/path my-image
+docker run -d --name my-flask-container -v ./data:/app/data my-image
 
 # Delete data volume
 docker volume rm my-volume
@@ -286,10 +292,10 @@ docker volume prune
 Here, the role of `-v` is to specify the mapping relationship between the directory in the container and the directory on the host, for example:
 
 ```bash
-docker run -d --name my-container -v /host/path:/container/path my-image
+docker run -d --name my-flask-container -v ./data:/app/data my-image
 ```
 
-This means that the `/container/path` directory in the container and the `/host/path` directory on the host are in a mapping relationship. File changes in the container will be synchronized to the host, and file changes on the host will also be synchronized to the container.
+This means that the `/app/data` directory in the container and the `./data` directory on the host are in a mapping relationship. File changes in the container will be synchronized to the host, and file changes on the host will also be synchronized to the container.
 
 ---
 
@@ -318,13 +324,13 @@ docker network create my-network
 docker network ls
 
 # Specify network when running container
-docker run -d --name my-container --network my-network my-image
+docker run -d --name my-flask-container --network my-network my-image
 
 # Connect container to network
-docker network connect my-network my-container
+docker network connect my-network my-flask-container
 
 # Disconnect container from network
-docker network disconnect my-network my-container
+docker network disconnect my-network my-flask-container
 
 # Delete network
 docker network rm my-network
@@ -349,7 +355,7 @@ Take `docker run` as an example:
 Every time I want to create a container, do I have to take a deep breath and type the whole command:
 
 ```bash
-docker run -d --name my-container -p 8080:5000 my-image
+docker run -d --name my-flask-container -p 8080:5000 my-image
 ```
 
 Exhausted after typing it all?
@@ -358,4 +364,6 @@ Exhausted after typing it all?
 
 For the specific solution, please look forward to the second part of this weekly session:
 
+
 ## Docker Compose
+
