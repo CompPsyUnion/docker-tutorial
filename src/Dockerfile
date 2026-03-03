@@ -1,18 +1,18 @@
-#1. basic information
+# 1. Base image
 FROM python:3.10-slim
 
-#2. set workspace
+# 2. Set working directory
 WORKDIR /app
 
-#3. install dependencies
-RUN pip install flask
+# 3. Copy requirements and install dependencies
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
 
-#4. copy app.py to /app dir in the container
+# 4. Copy application code
 COPY app.py /app/
 
-#5. set environment variables
-ENV PYTHONUNBUFFERED=1  
-#let python print log immediately
+# 5. Set environment variables
+ENV PYTHONUNBUFFERED=1
 
-#6. define the command to run in default when container starts
+# 6. Define default command
 CMD ["python", "app.py"]
