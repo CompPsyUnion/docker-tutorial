@@ -1,6 +1,6 @@
 services:
   web:
-    build: ./src
+    build: ./mysql_demo_site
     ports:
       - "35000:5000"
     environment:
