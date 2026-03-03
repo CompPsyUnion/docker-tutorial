@@ -11,35 +11,48 @@ This project demonstrates a simple web application with MySQL database integrati
 - **Web Service**: Flask application that connects to MySQL
 - **MySQL Service**: Database backend for data persistence
 
-## Quick Start
+## 1. Quick Start
 
-### Option 1: Use this template
+### Option 1: Use this template + codespaces (recommended for beginners)
 
 1. Click "Use this template" → "Create a new repository"
 2. Navigate to your new repository
 3. Click "Code" → "Codespaces" → "Create codespace on main"
-4. In the Codespaces terminal, run:
 
-   ```bash
-   docker compose up -d
-   ```
-
-### Option 2: Clone locally
+### Option 2: Clone locally (if you have Docker and Docker Compose installed)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/docker-tutorial.git
+git clone https://github.com/CompPsyUnion/docker-tutorial.git
 cd docker-tutorial
+```
+
+## 2. Go through the Docker tutorial in [`/src`](./src) to understand how the application works and how the Dockerfiles are set up
+
+## 3. Compose it up
+
+### Using `GitHub Codespaces`
+
+In the Codespaces `terminal`, run:
+
+```bash
 docker compose up -d
 ```
 
-## Access the Application
+### Option 2: Local development
+
+```bash
+# Under the project directory
+docker compose up -d
+```
+
+## 4. Access the Application
+
+In Codespaces, Access the application at port `5000`, you can forward your port to the public internet use "Ports" tab in Codespaces, and click the link provided to open in browser.
 
 Once the services are running:
 
 - **Home Page**: [http://localhost:5000](http://localhost:5000)
 - **MySQL Test**: [http://localhost:5000/mysql](http://localhost:5000/mysql)
-
-In Codespaces, use the "Ports" tab to access the forwarded URLs.
 
 ## Project Structure
 
