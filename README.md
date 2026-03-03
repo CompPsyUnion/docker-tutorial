@@ -26,7 +26,7 @@ git clone https://github.com/CompPsyUnion/docker-tutorial.git
 cd docker-tutorial
 ```
 
-## 2. Go through the Docker tutorial in [`/src`](./src) to understand how the application works and how the Dockerfiles are set up
+## 2. Go through the Docker tutorial in [`/flask_demo_site`](./flask_demo_site) to understand how the application works and how the Dockerfiles are set up
 
 ## 3. Compose it up
 
