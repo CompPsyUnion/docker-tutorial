@@ -190,7 +190,7 @@ start后面接你自己定义的容器名即可
 docker exec -it my-flask-container /bin/bash
 
 # 退出容器交互式终端
-exit
+CTRL + q + p
 ```
 
 #### 执行容器内命令
