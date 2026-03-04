@@ -275,10 +275,10 @@ docker volume ls
 docker volume inspect my-volume
 
 # 在运行容器时挂载数据卷
-docker run -d --name my-flask-container -v my-volume:/app/data my-image
+docker run -d --name my-flask-container -v my-volume:/app/data my-flask-app:v1
 
 # 挂载主机目录到容器
-docker run -d --name my-flask-container -v ./data:/app/data my-image
+docker run -d --name my-flask-container -v ./data:/app/data my-flask-app:v1
 
 # 删除数据卷
 docker volume rm my-volume
@@ -290,7 +290,7 @@ docker volume prune
 在这里，`-v`的作用是说明容器内的目录和主机内的目录的映射关系，例如：
 
 ```bash
-docker run -d --name my-flask-container -v ./data:/app/data my-image
+docker run -d --name my-flask-container -v ./data:/app/data my-flask-app:v1
 ```
 
 就说明容器内的`/app/data`目录和主机内的`./data`目录是映射关系，容器内的文件变化会同步到主机内，主机内的文件变化也会同步到容器内。
@@ -322,7 +322,7 @@ docker network create my-network
 docker network ls
 
 # 运行容器时指定网络
-docker run -d --name my-flask-container --network my-network my-image
+docker run -d --name my-flask-container --network my-network my-flask-app:v1
 
 # 连接容器到网络
 docker network connect my-network my-flask-container
@@ -353,7 +353,7 @@ docker network rm my-network
 每次我要创建容器时，我都要深吸一口气，然后直接一套：
 
 ```bash
-docker run -d --name my-flask-container -p 8080:5000 my-image
+docker run -d --name my-flask-container -p 8080:5000 my-flask-app:v1
 ```
 
 累死累活的打完吗？
